@@ -1,13 +1,213 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+body {
+  width: 100%;
+  min-width: 100vh;
+  background: #d4d4d4;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*! ***************** app root ****************** */
+
+.app__root {
+  display: flex;
+}
+
+/* ! ****************** sidebar ********************* */
+.app__sidebar {
+  width: 300px;
+  height: 100vh;
+  background: #454545;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 1rem;
+}
+.app__sidebar-logo,
+.app__sidebar-menu_item {
+  color: #d4d4d4;
+  text-align: center;
+  font-size: 3rem;
+}
+.app__sidebar-logo {
+  padding: 2rem 1rem;
+  border-bottom: 5px solid #d4d4d4;
+  width: 100%;
+  font-weight: bold;
+}
+.app__sidebar-menu_item {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+.app__sidebar-menu_item:hover{
+  background: #707070;
+}
+
+/* ! ******************* home ************************ */
+.app__userlist-container{
+  height: 100vh;
+  padding: 1rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  overflow-y: scroll;
+}
+.app__userlist{
+  
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  
+}
+
+/* ! ******************* add user ********************  */
+
+.app__addUser{
+  padding: 1rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.app__page-header{
+  width: 100%;
+  border-bottom: 5px solid #454545;
+}
+.app__page-header h2{
+  font-size: 3rem;
+  color: #454545;
+  padding: 2rem 0;
+  
+}
+.app__addUser-form{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.app__addUser-form input,
+.app__addUser-form button{
+  padding: 1rem;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.app__addUser-form input{
+  border: 1px solid #ccc;
+}
+.app__addUser-form button{
+  background: rgb(46, 139, 87);
+  color: #fff;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+.app__addUser-form button:hover{
+  cursor: pointer;
+  background: rgb(36, 114, 70);
+}
+
+/* ! ********************** user item ****************** */
+
+.app__userItem{
+  width: 360px;
+  height: 360px;
+  padding: 1rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  gap: 15px;
+}
+.app__userItem-remove{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.app__userItem-remove button{
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+.app__userItem-remove button:hover{
+  cursor: pointer;
+  color: darkred;
+}
+.app__userItem-pic{
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8rem;
+  color: #ccc;
+}
+.app__userItem-desc{
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.app__userItem-desc p{
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.app__userItem-editBtn{
+  padding: .8rem 1.5rem;
+  border: none;
+  outline: none;
+  background: rgb(70, 130, 180);
+  color: #fff;
+  font-size: 1rem;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.app__userItem-editBtn:hover{
+  cursor: pointer;
+  background: rgb(55, 109, 152);
 }
