@@ -64,7 +64,7 @@ body {
   background: #707070;
 }
 
-/* ! ******************* home ************************ */
+/* ! ******************* userlist ************************ */
 .app__userlist-container{
   height: 100vh;
   padding: 1rem 2rem;
@@ -73,6 +73,14 @@ body {
   flex-direction: column;
   gap: 50px;
   overflow-y: scroll;
+}
+.app__userlist-noUser{
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 3rem;
+  color: #707070;
+  padding: 2rem ;
+  font-weight: bold;
 }
 .app__userlist{
   
@@ -210,4 +218,15 @@ body {
 .app__userItem-editBtn:hover{
   cursor: pointer;
   background: rgb(55, 109, 152);
+}
+
+/*! ********************** edit user ****************** */
+
+.app__editUser{
+  height: 100vh;
+  padding: 1rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }

@@ -1,11 +1,15 @@
 import React from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { BsFillTrashFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { deleteUser } from "../../redux/userSlice";
+import { Link } from "react-router-dom";
 const UserItem = (user) => {
+  const dispatch = useDispatch();
   return (
     <div className="app__userItem">
       <div className="app__userItem-remove">
-        <button>
+        <button onClick={() => dispatch(deleteUser(user.user))}>
           <BsFillTrashFill />
         </button>
       </div>
@@ -16,7 +20,9 @@ const UserItem = (user) => {
         <p>{user.user.name}</p>
         <p>{user.user.surname}</p>
       </div>
-      <button className="app__userItem-editBtn">Edit User</button>
+      <Link to={`/userList/${user.user.id}/edit`}>
+        <button className="app__userItem-editBtn">Update User</button>
+      </Link>
     </div>
   );
 };
