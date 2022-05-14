@@ -3,7 +3,8 @@ import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
 const adapterizer = () => {
     return {
         selecIds: (user) => user.id,
-        sortComparer: (preUser, nextUser) => nextUser.id.localCompare(preUser.id),
+        
+        //sortComparer: (preUser, nextUser) => preUser.id.localCompare(nextUser.id),
     }
 }
 
@@ -24,14 +25,14 @@ const sliceInvoker = () => {
         name: "users",
         initialState,
         reducers: {
-            addUser: (state, action) => {
+            addUser : (state, action) =>  {
                 usersAdapter.addOne(state.users, action.payload)
             },
             deleteUser: (state, action) => {
                 usersAdapter.removeOne(state.users, action.payload.id)
             },
             updateUser: (state, action) => {
-                usersAdapter.updateOne(state.users, action.payload)
+                usersAdapter.updateOne(state.users ,action.payload)
             }
         },
         extraReducers: {}

@@ -8,14 +8,12 @@ const AddUser = () => {
   const [surname, setSurname] = useState('');
   const dispatch = useDispatch();
   const isDisabled = [name, surname].every(Boolean)
+
   const handleSubmitUser = (e) => {
-    
     if(isDisabled){
+      e.preventDefault();
       dispatch(addUser({name, surname, id: nanoid()}))
     }
-    
-
-    e.preventDefault();
   }
 
   return (
