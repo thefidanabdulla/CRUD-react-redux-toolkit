@@ -32,7 +32,8 @@ const sliceInvoker = () => {
                 usersAdapter.removeOne(state.users, action.payload.id)
             },
             updateUser: (state, action) => {
-                usersAdapter.updateOne(state.users ,action.payload)
+                usersAdapter.removeOne(state.users, action.payload.id)
+                usersAdapter.addOne(state.users, action.payload)
             }
         },
         extraReducers: {}

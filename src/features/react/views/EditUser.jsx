@@ -1,23 +1,26 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { selectAllUsers, updateUser } from '../../redux/userSlice';
+import { selectUserById, updateUser } from '../../redux/userSlice';
 const EditUser = () => {
   
   const dispatch = useDispatch();
   const {userId} = useParams();
-  const users = useSelector(selectAllUsers);
-  const edittedUser =  users.map((user) => user.id === userId ? user : null);
-  const [name, setName] = useState(edittedUser[0].name);
-  const[surname, setSurname] = useState(edittedUser[0].surname);
-  const isDisabled = [name !==  edittedUser[0].name || surname !== edittedUser[0]].every(Boolean)
+  const user = useSelector(state => selectUserById(state, userId));
+  console.log(user);
+  const [name, setName] = useState(user.name);
+  const[surname, setSurname] = useState(user.surname);
+  const isDisabled = [name !==  user.name || surname !== user.surname].every(Boolean)
   
   const handleEditUser = (e) => {
-    if(name !==  edittedUser[0].name || surname !== edittedUser[0].surname){
-      dispatch(updateUser({name, surname, id: userId}))
-    }
     e.preventDefault();
+    if(name !==  user.name || surname !== user.surname){
+      dispatch(updateUser({name, surname, id: userId}))
+
+      //console.log({name, surname, id: userId});
+    }
   }
+
 
   return (
     <div className='app__editUser'>
